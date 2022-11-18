@@ -19,3 +19,35 @@ $ kubectl logs predict-kubernate-668d5bf96d-7csnd
 [2022-11-18 06:06:41,122] INFO in app: Log prediction :
 [20.35373177134412]
 127.0.0.1 - - [18/Nov/2022 06:06:41] "POST /predict HTTP/1.1" 200 -
+
+
+=====================================================================
+$ ./run_kubernetes.sh
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/predict-kubernate   1/1     1            1           19h
+
+NAME                                           DESIRED   CURRENT   READY   AGE
+replicaset.apps/predict-kubernate-668d5bf96d   1         1         1       19h
+
+NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   20h
+
+NAME                                     READY   STATUS    RESTARTS   AGE
+pod/predict-kubernate-668d5bf96d-7csnd   1/1     Running   0          5m21s
+service/api exposed
+Forwarding from 127.0.0.1:8080 -> 80
+Forwarding from [::1]:8080 -> 80
+Handling connection for 8080
+
+
+=======================================================================================
+
+$ ./make_prediction.sh
+Port: 8080
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212   1159   5120 --:--:-- --:--:-- --:--:--  6500{
+  "prediction": [
+    20.35373177134412
+  ]
+}
