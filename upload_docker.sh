@@ -12,7 +12,6 @@ dockerpath=dangdang511/devops-microservices-api
 # Authenticate & tag
 echo "Docker ID and Image: $dockerpath"
 #docker login -u <YOUR_USER_NAME> --p <YOUR_PASSWORD>
-docker login -u dangdang511 --p Haidang511@
 docker tag api $dockerpath
 
 # Step 3:
