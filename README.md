@@ -48,3 +48,10 @@ source .devops/bin/activate
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+### Explanation of the files
+
+* make_prediction.sh : mock request call api
+* run_docker.sh : docker build image with tag api and run image port 80
+* upload_docker.sh : push image to docker hub
+* run_kubernetes.sh : Run the Docker Hub container with kubernetes and Forward the container port to a host
